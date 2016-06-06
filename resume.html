@@ -35,10 +35,122 @@
 	iframe{
 		height: 650px;
 		width: 500px;
+	}.
+	#menu-bar{
+		font-size: 36px;
+		background-color: black;
+		color: white;
+		padding: 20px;
+		margin-bottom: 50px;
 	}
+	.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #00aad6;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #00aad6;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #00aad6;
+    color: white;
+}
 	</style>
 </head>
 <body>
+		<section id="menu-bar">
+	<div class="container" onclick="myFunction(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+
+<script>
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+</script>
 <a href="index.html">Home</a> |
 <a href="about.html">About Me</a> |
 <a href="portfolio.html">Portfolio</a> |
@@ -50,11 +162,60 @@
 <br>
 <h1> Resume </h1>
 <iframe src="Resume.pdf"></iframe>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Contact Me</button>
 
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">×</span>
+      <h2><strong>Contact Me!</strong></h2>
+    </div>
+    <div class="modal-body">
+      <p>305-772-4950</p>
+      <p>ashleyyllerena@gmail.com</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Thank you!</h3>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 <br>
 <a href="https://www.linkedin.com/in/ashley-llerena-5a5269118"><img src= "Linkedin icon.png" width="50px"></a> | 
 <a href="https://www.instagram.com/ash_llerena/"><img src="df61fd9361187.560cd336ce5b2.png" width="50px"></a> | 
-<a href="https://twitter.com/Ash_Llerena?lang=en"><img src="Twitter_bird_icon.png" width="50px"></a>
+
 <p>&copy; AshleyLlerena<p>
 </center>
 </body>
